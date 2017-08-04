@@ -53,6 +53,9 @@ var path = {
   CSS: [
     'src/assets/css/*.css'
   ],
+  VENDOR_CSS: [
+  'node_modules/bootstrap/dist/css/bootstrap.css'
+  ],
   LESS: [
 //    'src/less/style.less'
   ],
@@ -69,6 +72,7 @@ var path = {
 //    'node_modules/angular-messages/angular-messages.js',
 //    'node_modules/angular-sanitize/angular-sanitize.js',
     'node_modules/angular-ui-router/release/angular-ui-router.js'
+    
     // ...and more
   ],
   DIST: './dist'
@@ -94,8 +98,13 @@ gulp.task('lint', function() {
 });
 /* move css */
 gulp.task('css', function () {
+  //copy across our styles
   gulp.src(path.CSS)
     .pipe(gulp.dest(path.DIST + '/css'));
+  //copy across bootstrap
+  gulp.src(path.VENDOR_CSS)
+    .pipe(gulp.dest(path.DIST + '/css'));
+  
 });
 /* compile less */
 gulp.task('less', function () {
@@ -144,4 +153,4 @@ gulp.task('watch', function () {
 });
 /* defualt */
 //gulp.task('default', all_tasks);
-gulp.task('default',['clean', 'js', 'vendor', 'html', 'connect', 'watch']);
+gulp.task('default',['clean', 'css',  'js', 'vendor', 'html', 'connect', 'watch']);

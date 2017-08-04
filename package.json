@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "angular": "^1.5.11",
-    "angular-ui-router": "^1.0.3"
+    "angular-ui-router": "^1.0.3",
+    "bootstrap": "^4.0.0-alpha.6"
   }
 }
