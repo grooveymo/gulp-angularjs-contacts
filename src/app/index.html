@@ -27,25 +27,22 @@
 <!--<a ui-sref="list" ui-sref-active="active">List</a>-->
 <!--<a ui-sref="search" ui-sref-active="active">Search</a>-->
 <!--<a ui-sref="about" ui-sref-active="active">About</a>-->
-<!--<ui-view></ui-view>-->
-
-
-
-
-<body>
-
 <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse mb-4">
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="#">Top navbar</a>
+    <a class="navbar-brand" href="#">Contacts App</a>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <!--<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>-->
+                <a class="nav-link" ui-sref="home" ui-sref-active="active">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link" ui-sref="create" ui-sref-active="active">New</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" ui-sref="list" ui-sref-active="active">List</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link disabled" href="#">Disabled</a>
@@ -59,12 +56,9 @@
 </nav>
 
 <div class="container">
-    <div class="jumbotron">
-        <h1>Navbar example</h1>
-        <p class="lead">This example is a quick exercise to illustrate how the top-aligned navbar works. As you scroll, this navbar remains in its original position and moves with the rest of the page.</p>
-        <a class="btn btn-lg btn-primary" href="../../components/navbar/" role="button">View navbar docs &raquo;</a>
-    </div>
+    <ui-view></ui-view>
 </div>
+
 
 </body>
 </html>

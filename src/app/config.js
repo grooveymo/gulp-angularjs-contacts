@@ -2,10 +2,15 @@
  * Define routes.
  */
 angular.module('app').config(function($stateProvider) {
+  var homeState = {
+    name: 'home',
+    url: '/home',
+    templateUrl : './common/home.html'
+  };
   var createState = {
     name: 'create',
     url: '/create',
-    template: '<h3>Create Contact</h3>'
+    templateUrl : './create/create-contact.html'
   };
   var listState = {
     name: 'list',
@@ -28,6 +33,7 @@ angular.module('app').config(function($stateProvider) {
     template: '<h3>Search Contacts</h3>'
   };
   
+  $stateProvider.state(homeState);
   $stateProvider.state(createState);
   $stateProvider.state(listState);
   $stateProvider.state(editState);
