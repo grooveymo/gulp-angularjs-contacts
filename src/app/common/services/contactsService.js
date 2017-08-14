@@ -9,11 +9,19 @@ function ContactsService($rootScope, $http, ENDPOINT_URI) {
     return $http
       .post(ENDPOINT_URI, contact).then(function(response) {
         console.log('[contactsService] POST /contacts completed successfully - ' + JSON.stringify(response));
-        return response.data;
+        return response.data.contact;
       })
       .catch(function(response) {
         console.error('[contactsService, ERROR] performing POST /contacts ', response.status, response.data);
         $rootScope.$broadcast('onError', response);
+      });
+  };
+  
+  contactsService.getContacts = function getContacts() {
+    return $http
+      .get(ENDPOINT_URI)
+      .then(function(response){
+        return response.data;
       });
   };
   

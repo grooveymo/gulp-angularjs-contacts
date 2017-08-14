@@ -16,7 +16,8 @@ angular.module('app').config(function($stateProvider) {
   var listState = {
     name: 'list',
     url: '/list',
-    template: '<h3>List Contacts</h3>'
+    templateUrl : './list/list-contacts.html',
+    controller : 'ListController as vm'
   };
   var aboutState = {
     name: 'about',

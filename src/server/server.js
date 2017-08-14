@@ -82,6 +82,14 @@ router.route('/contacts/')
     var contact = new Contact();		// create a new instance of the TodoList model
     contact.firstName = req.body.firstName;
     contact.lastName = req.body.lastName;
+    contact.email = req.body.email;
+    contact.telephone = req.body.telephone;
+    contact.address = {
+      firstLineOfAddress : req.body.address.firstLineOfAddress,
+      secondLineOfAddress : req.body.address.secondLineOfAddress,
+      city : req.body.address.city,
+      postCode : req.body.address.postCode
+    }
     contact.save(function(err) {
       if (err) {
         console.log('[ERROR] POST /contacts - ' + JSON.stringify(err));

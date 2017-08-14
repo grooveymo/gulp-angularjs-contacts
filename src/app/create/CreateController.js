@@ -1,6 +1,6 @@
 'use strict';
 
-function CreateController(ContactsService) {
+function CreateController(ContactsService, $state) {
   
   console.log('Enterijng Create Controller');
   var vm = this;
@@ -8,18 +8,25 @@ function CreateController(ContactsService) {
     firstName : '',
     lastName : '',
     email : '',
-    telephone : ''
+    telephone : '',
+    address : {
+      firstLineOfAddress : '',
+      secondLineOfAddress : '',
+      city : '',
+      postCode : ''
+    }
   };
   
   vm.save = function save() {
     ContactsService.createContact(vm.contact).then(function(newContact) {
       console.log('created new contact with id: ' + newContact._id);
+      $state.go('list');
     });
   };
   
 };
 
-CreateController.$inject = ['ContactsService'];
+CreateController.$inject = ['ContactsService', '$state'];
 
 angular
   .module('app')

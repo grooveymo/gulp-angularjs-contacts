@@ -4,49 +4,49 @@
         <div class="form-group row">
             <label for="firstName" class="col-2 col-form-label">Forename</label>
             <div class="col-10">
-                <input class="form-control" type="text" ng-model="contact.firstName" id="firstName">
+                <input class="form-control" type="text" ng-model="vm.contact.firstName" id="firstName">
             </div>
         </div>
         <div class="form-group row">
             <label for="lastName" class="col-2 col-form-label">Surname</label>
             <div class="col-10">
-                <input class="form-control" type="text"  ng-model="contact.lastName" id="lastName">
+                <input class="form-control" type="text"  ng-model="vm.contact.lastName" id="lastName">
             </div>
         </div>
         <div class="form-group row">
             <label for="email" class="col-2 col-form-label">Email</label>
             <div class="col-10">
-                <input class="form-control" type="email" ng-model="contact.email" id="email">
+                <input class="form-control" type="email" ng-model="vm.contact.email" id="email">
             </div>
         </div>
         <div class="form-group row">
             <label for="telephone" class="col-2 col-form-label">Contact Telephone</label>
             <div class="col-10">
-                <input class="form-control" type="tel"  ng-model="contact.telephone" id="telephone">
+                <input class="form-control" type="tel"  ng-model="vm.contact.telephone" id="telephone">
             </div>
         </div>
         <div class="form-group row">
-            <label for="example-tel-input" class="col-2 col-form-label">First Line of Address</label>
+            <label for="firstLineOfAddress" class="col-2 col-form-label">First Line of Address</label>
             <div class="col-10">
-                <input class="form-control" type="tel" value="123 Somewhere Street" id="example-tel-input">
+                <input class="form-control" type="tel" ng-model="vm.contact.address.firstLineOfAddress" id="firstLineOfAddress">
             </div>
         </div>
         <div class="form-group row">
-            <label for="example-tel-input" class="col-2 col-form-label">Second Line of Address</label>
+            <label for="secondLineOfAddress" class="col-2 col-form-label">Second Line of Address</label>
             <div class="col-10">
-                <input class="form-control" type="tel" value="Another Area" id="example-tel-input">
+                <input class="form-control" type="tel" ng-model="vm.contact.address.secondLineOfAddress" id="secondLineOfAddress">
             </div>
         </div>
         <div class="form-group row">
-            <label for="example-tel-input" class="col-2 col-form-label">City</label>
+            <label for="city" class="col-2 col-form-label">City</label>
             <div class="col-10">
-                <input class="form-control" type="tel" value="London" id="example-tel-input">
+                <input class="form-control" type="tel" ng-model="vm.contact.address.city" id="city">
             </div>
         </div>
         <div class="form-group row">
-            <label for="example-tel-input" class="col-2 col-form-label">Post Code</label>
+            <label for="postCode" class="col-2 col-form-label">Post Code</label>
             <div class="col-10">
-                <input class="form-control" type="tel" value="NW4 3PE" id="example-tel-input">
+                <input class="form-control" type="tel" ng-model="vm.contact.address.postCode" id="postCode">
             </div>
         </div>
 
