@@ -5,6 +5,7 @@ based on seed gulp-karma project @
 Will also use sample gulp file from here 
 - https://artifact.me/simple-gulp-configuration-for-angular-applications/
 
+- see http://quickui.org/docs/contacts.html for card layout example
 
 
 [![devDependency Status](https://david-dm.org/karma-runner/gulp-karma/dev-status.png?branch=master)](https://david-dm.org/karma-runner/gulp-karma#info=devDependencies)

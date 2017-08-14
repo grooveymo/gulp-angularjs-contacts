@@ -10,7 +10,8 @@ angular.module('app').config(function($stateProvider) {
   var createState = {
     name: 'create',
     url: '/create',
-    templateUrl : './create/create-contact.html'
+    templateUrl : './create/create-contact.html',
+    controller : 'CreateController as vm'
   };
   var listState = {
     name: 'list',

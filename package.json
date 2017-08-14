@@ -10,7 +10,8 @@
     "url": "/issues"
   },
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp test",
+    "start_server" : "node server/server.js"
   },
   "homepage": "",
   "devDependencies": {
@@ -37,6 +38,10 @@
   "dependencies": {
     "angular": "^1.5.11",
     "angular-ui-router": "^1.0.3",
-    "bootstrap": "^4.0.0-alpha.6"
+    "bootstrap": "^4.0.0-alpha.6",
+    "express": "*",
+    "morgan": "*",
+    "mongoose" : "*",
+    "body-parser": "*"
   }
 }
