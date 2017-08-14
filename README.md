@@ -1,5 +1,21 @@
 My changelist
 ----------------
+
+
+deploy:
+--------
+1. start mongo 
+2. start REST server
+   $ npm run start_server
+3. start UI
+    $ gulp clean
+    $ gulp
+    
+    
+    
+background
+------------
+
 based on seed gulp-karma project @
 - https://github.com/karma-runner/gulp-karma
 Will also use sample gulp file from here 
