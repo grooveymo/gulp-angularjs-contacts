@@ -78,12 +78,14 @@ router.get('/', function(req, res) {
 // create a todolist (accessed at POST http://localhost:8080/api/todolists)
 router.route('/contacts/')
   .post(function(req, res) {
-    console.log('calling POST /contacts/');
+    console.log('calling POST /contacts/ with body : ' + JSON.stringify(req.body));
     var contact = new Contact();		// create a new instance of the TodoList model
     contact.firstName = req.body.firstName;
     contact.lastName = req.body.lastName;
     contact.save(function(err) {
       if (err) {
+        console.log('[ERROR] POST /contacts - ' + JSON.stringify(err));
+        res.status(400);
         return res.send(err);
       }
       

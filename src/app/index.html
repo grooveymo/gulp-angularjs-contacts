@@ -18,15 +18,28 @@
     <link href="../css/navbar-top.css" rel="stylesheet">
 
 
-    <style>.active { color: red; font-weight: bold; }</style>
+    <style>.active {
+        color: red;
+        font-weight: bold;
+    }</style>
 </head>
 <body ng-app="app">
+
+<div ng-show="vm.showError" ng-controller="ErrorHandlerCtrl as vm">
+    <h1>Error</h1>
+    <div>{{vm.error}}</div>
+    <div>
+        <button ng-click="vm.clear()">Clear</button>
+    </div>
+</div>
 <!--<a ui-sref="create" ui-sref-active="active">Create</a>-->
 <!--<a ui-sref="list" ui-sref-active="active">List</a>-->
 <!--<a ui-sref="search" ui-sref-active="active">Search</a>-->
 <!--<a ui-sref="about" ui-sref-active="active">About</a>-->
 <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse mb-4">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+            data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+            aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand" href="#">Contacts App</a>
