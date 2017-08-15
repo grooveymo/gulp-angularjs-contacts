@@ -2,8 +2,7 @@
     <thead>
     <tr>
         <th>#</th>
-        <th>First Name</th>
-        <th>Last Name</th>
+        <th>Full Name</th>
         <th>Email</th>
         <th>Telephone</th>
         <th>Address</th>
@@ -12,8 +11,7 @@
     <tbody>
     <tr ng-repeat="contact in vm.contacts">
         <th scope="row">{{$index}}</th>
-        <td>{{contact.firstName}}</td>
-        <td>{{contact.lastName}}</td>
+        <td ui-sref="edit({id : contact._id})">{{contact.fullName}}</td>
         <td>{{contact.email}}</td>
         <td>{{contact.telephone}}</td>
         <td>

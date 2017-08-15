@@ -27,7 +27,8 @@ angular.module('app').config(function($stateProvider) {
   var editState = {
     name: 'edit',
     url: '/edit/:id',
-    template: '<h3>Edit Contacts</h3>'
+    templateUrl : './edit/edit-contact.html',
+    controller : 'EditController as vm'
   };
   var searchState = {
     name: 'search',
