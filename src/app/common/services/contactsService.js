@@ -64,6 +64,18 @@ function ContactsService($rootScope, $http, ENDPOINT_URI) {
       });
   };
   
+  contactsService.deleteContact = function deleteContact(id) {
+    console.log('[contactsService] : delete contact with : ' + id);
+    return $http
+      .delete(ENDPOINT_URI + '/' + id).then(function(response) {
+        console.log('[contactsService] DELETE /contacts completed successfully - ' + JSON.stringify(response));
+        return response.data.id;
+      })
+      .catch(function(response) {
+        console.error('[contactsService, ERROR] performing delete /contacts ', response.status, response.data);
+        $rootScope.$broadcast('onError', response);
+      });
+  };
   
 }
 

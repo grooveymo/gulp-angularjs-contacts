@@ -6,18 +6,21 @@
         <th>Email</th>
         <th>Telephone</th>
         <th>Address</th>
+        <th>Action</th>
     </tr>
     </thead>
     <tbody>
     <tr ng-repeat="contact in vm.contacts">
         <th scope="row">{{$index}}</th>
-        <td ui-sref="edit({id : contact._id})">{{contact.fullName}}</td>
+        <!--<td ui-sref="edit({id : contact._id})">{{contact.fullName}}</td>-->
+        <td>{{contact.fullName}}</td>
         <td>{{contact.email}}</td>
         <td>{{contact.telephone}}</td>
         <td>
             <div ng-include="'common/address.html'"></div>
         </td>
-        <!--<td>{{contact.address}}</td>-->
+        <td><button class="btn btn-primary" ng-click="vm.editContact(contact._id)">edit</button></td>
+        <td><button class="btn btn-danger" ng-click="vm.deleteContact(contact._id)">delete</button></td>
     </tr>
     </tbody>
 </table>

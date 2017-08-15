@@ -82,10 +82,10 @@ router.route('/contacts/')
     contact.email = req.body.email;
     contact.telephone = req.body.telephone;
     contact.address = {
-      firstLineOfAddress : req.body.address.firstLineOfAddress,
-      secondLineOfAddress : req.body.address.secondLineOfAddress,
-      city : req.body.address.city,
-      postCode : req.body.address.postCode
+      firstLineOfAddress: req.body.address.firstLineOfAddress,
+      secondLineOfAddress: req.body.address.secondLineOfAddress,
+      city: req.body.address.city,
+      postCode: req.body.address.postCode
     }
     contact.save(function(err) {
       if (err) {
@@ -112,57 +112,58 @@ router.route('/contacts/')
 //handle get single contact and update contact
 router.route('/contacts/:id')
   .put(function(req, res) {
-    console.log('[A]1 calling PUT /contacts/ with request params : ' + JSON.stringify(req.params));
-    console.log('[A]2 calling PUT /contacts/ with request body : ' + JSON.stringify(req.body));
-
-    Contact.findById({_id : req.params.id }, function(err, contact) {
+    Contact.findById({ _id: req.params.id }, function(err, contact) {
       if (err) {
         console.log('[ERROR] PUT /contacts - ' + JSON.stringify(err));
         return res.send(err);
       }
-  
-      console.log('[A]3 found contact : ' + JSON.stringify(contact));
-  
+      
       contact.firstName = req.body.firstName;
       contact.lastName = req.body.lastName;
       contact.email = req.body.email;
       contact.telephone = req.body.telephone;
       contact.address = {
-        firstLineOfAddress : req.body.address.firstLineOfAddress,
-        secondLineOfAddress : req.body.address.secondLineOfAddress,
-        city : req.body.address.city,
-        postCode : req.body.address.postCode
+        firstLineOfAddress: req.body.address.firstLineOfAddress,
+        secondLineOfAddress: req.body.address.secondLineOfAddress,
+        city: req.body.address.city,
+        postCode: req.body.address.postCode
       };
-  
+      
       contact.save(function(err, updatedContact) {
         if (err) {
           console.log('[ERROR] PUT /contacts - ' + JSON.stringify(err));
           res.status(400);
           return res.send(err);
         }
-    
-        res.json({ message: 'Contact upated!', contact: updatedContact });
+        
+        res.json({ message: 'Contact updated!', contact: updatedContact });
       });
-  
+      
     });
     
   })
   .get(function(req, res) {
-    console.log('[DDT]1 calling GET /contacts/' + JSON.stringify(req.params));
-    console.log('[DDT]2 calling GET /contacts/' + JSON.stringify(req.body));
-    Contact.find({_id : req.params.id }, function(err, contact) {
+    Contact.find({ _id: req.params.id }, function(err, contact) {
       if (err) {
         console.log('[ERROR] GET /contacts - ' + JSON.stringify(err));
         return res.send(err);
       }
-
-      console.log('[DDT]3 retrieved GET /contacts/' + JSON.stringify(req.contact));
       
       res.json(contact);
     });
+  })
+  .delete(function(req, res) {
+    var toBeDeletedId = req.params.id
+    Contact.remove({ _id: toBeDeletedId }, function(err) {
+      if (err) {
+        console.log('[ERROR] DELETE /contacts - ' + JSON.stringify(err));
+        return res.send(err);
+      }
+      res.json({ message: 'Successfully deleted', id : toBeDeletedId });
+    });
+    
+    
   });
-
-
 
 
 //  .put(function(req, res) {
