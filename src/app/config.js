@@ -35,6 +35,12 @@ angular.module('app').config(function($stateProvider) {
     url: '/search',
     template: '<h3>Search Contacts</h3>'
   };
+  var viewDetailState = {
+    name: 'view-detail',
+    url: '/view-detail/:id',
+    templateUrl : './detail/contact-detail.html',
+    controller : 'ContactDetailController as vm'
+  };
   
   $stateProvider.state(homeState);
   $stateProvider.state(createState);
@@ -42,4 +48,6 @@ angular.module('app').config(function($stateProvider) {
   $stateProvider.state(editState);
   $stateProvider.state(searchState);
   $stateProvider.state(aboutState);
+  $stateProvider.state(viewDetailState);
+
 });

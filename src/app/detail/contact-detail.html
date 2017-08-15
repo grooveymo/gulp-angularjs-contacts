@@ -1,0 +1,23 @@
+<div class="card" style="background-color: #ffffff; border-color: #333; width:20em">
+
+    <div class="card-header">
+        <h3 class="card-title text-center">
+            {{vm.contact.fullName}}
+        </h3>
+    </div>
+
+    <div class="card-body text-center">
+
+        <div>{{vm.contact.email}}</div>
+        <br/>
+        <div ng-include="'common/address.html'"></div>
+        <br/>
+        <div>{{vm.contact.telephone}}</div>
+    </div>
+
+    <div class="card-footer">
+
+        <a ui-sref="edit({id : vm.contact._id})" class="btn btn-primary">Edit</a>
+    </div>
+</div>
+

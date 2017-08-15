@@ -41,9 +41,16 @@ function ContactsService($rootScope, $http, ENDPOINT_URI) {
   
   contactsService.getContact = function getContact(id) {
     return $http
-      .get(ENDPOINT_URI + '/' + id)
+      .get(ENDPOINT_URI + '/' + id, {
+                                      transformResponse: function(data) {
+                                        var contact = angular.fromJson(data)[0];
+                                        contact.fullName = contact.firstName + ' ' + contact.lastName;
+                                        console.log('opera -> ' + JSON.stringify(contact));
+                                        return contact;
+                                      }
+                                    })
       .then(function(response) {
-        return response.data[0];
+        return response.data;
       })
       .catch(function(response) {
         console.error('[contactsService, ERROR] performing GET /contact ', response.status, response.data);

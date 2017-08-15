@@ -12,8 +12,9 @@
     <tbody>
     <tr ng-repeat="contact in vm.contacts">
         <th scope="row">{{$index}}</th>
-        <!--<td ui-sref="edit({id : contact._id})">{{contact.fullName}}</td>-->
-        <td>{{contact.fullName}}</td>
+        <td ui-sref="view-detail({id : contact._id})">
+            <a href="#">{{contact.fullName}}</a></td>
+        <!--<td>{{contact.fullName}}</td>-->
         <td>{{contact.email}}</td>
         <td>{{contact.telephone}}</td>
         <td>
