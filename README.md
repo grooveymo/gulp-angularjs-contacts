@@ -1,7 +1,14 @@
 My changelist
 ----------------
 
-
+Tasks
+---------
+1. Implement 'search' textbox in navbar - use typeahead compt from https://angular-ui.github.io/bootstrap/
+2. Implement search page - empty page that displays all contacts in card form. Narrows it down based on what's
+   typed into search box.
+   
+   
+   
 deploy:
 --------
 1. start mongo 
