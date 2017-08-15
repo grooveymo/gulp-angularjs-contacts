@@ -11,7 +11,9 @@ deploy:
     $ gulp clean
     $ gulp
     
-    
+4. To generate test data, fire up your browser and enter following url
+        http://localhost:9090/api/contacts/generate/1234
+    This will generate sample contact everytime you refresh this url.
     
 background
 ------------
