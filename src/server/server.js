@@ -16,6 +16,8 @@ var Contact = require('./models/contact').Contact;
 //declare name of db
 var db = 'contacts-db';
 
+
+var faker = require('faker');
 // =============================================================================
 // configure app
 // =============================================================================
@@ -70,6 +72,59 @@ router.get('/', function(req, res) {
 });
 
 
+router.route('/contacts/generate/:id')
+  .get(function(req, res) {
+    console.log('generating fake contacts');
+    var firstName = faker.name.firstName();
+    var lastName = faker.name.lastName();
+    var randomEmail = faker.internet.email();
+    var phone = faker.phone.phoneNumber();
+    var firstLineOfAddress = faker.address.streetAddress();
+    var secondLineOfAddress = faker.address.secondaryAddress();
+    var city = faker.address.city();
+    var postCode = faker.address.zipCode();
+  
+    var contact = new Contact();
+  
+      contact.firstName = firstName;
+      contact.lastName = lastName;
+      contact.email = randomEmail;
+      contact.telephone = phone;
+      contact.address = {
+        'firstLineOfAddress' : firstLineOfAddress,
+        'secondLineOfAddress' : secondLineOfAddress,
+        'city' : city,
+        'postCode' : postCode
+      }
+  
+    contact.save(function(err) {
+      if (err) {
+        console.log('[ERROR] POST /contacts - ' + JSON.stringify(err));
+        res.status(400);
+        return res.send(err);
+      }
+    
+      res.json({ message: 'New Contact created!', contact: contact });
+    });
+  
+    //res.json(
+    //  {
+    //    message: 'Successfully deleted',
+    //    contact: {
+    //      '_id': 1,
+    //      'firstName': firstName,
+    //      'lastName': lastName,
+    //      'email': randomEmail,
+    //      'telephone': phone,
+    //      '1st line of address': firstLineOfAddress,
+    //      '2nd Line of Address': secondLineOfAddress,
+    //      'city': city,
+    //      'postCode' : postCode
+    //    }
+    //  });
+    //
+  });
+
 // ----------------------------------------------------
 // CREATE a NEW Contact
 // create a todolist (accessed at POST http://localhost:8080/api/todolists)
@@ -86,7 +141,7 @@ router.route('/contacts/')
       secondLineOfAddress: req.body.address.secondLineOfAddress,
       city: req.body.address.city,
       postCode: req.body.address.postCode
-    }
+    };
     contact.save(function(err) {
       if (err) {
         console.log('[ERROR] POST /contacts - ' + JSON.stringify(err));
@@ -153,52 +208,16 @@ router.route('/contacts/:id')
     });
   })
   .delete(function(req, res) {
-    var toBeDeletedId = req.params.id
+    var toBeDeletedId = req.params.id;
     Contact.remove({ _id: toBeDeletedId }, function(err) {
       if (err) {
         console.log('[ERROR] DELETE /contacts - ' + JSON.stringify(err));
         return res.send(err);
       }
-      res.json({ message: 'Successfully deleted', id : toBeDeletedId });
+      res.json({ message: 'Successfully deleted', id: toBeDeletedId });
     });
     
-    
   });
-
-
-//  .put(function(req, res) {
-//
-//    Contact.findById(req.params.contactId, function(err, originalContact) {
-//      if (err) {
-//        return res.send(err);
-//      }
-//
-//      originalContact.firstName = req.body.firstName;
-//      originalContact.lastName = req.body.lastName;
-//
-//      originalContact.save(function(err, contact) {
-//        if (err) {
-//          console.log('Problem updating contact : ' + err.message);
-//        }
-//
-//
-//        res.send(contact);
-//      });
-//
-//    });
-//  })
-//.
-//delete(function(req, res) {
-//  console.log('deleting ', req.params.contactId);
-//
-//  Contact.remove({ _id: req.params.contactId }, function(err, contact) {
-//    if (err) {
-//      return res.send(err);
-//    }
-//
-//    res.json({ message: 'Successfully deleted' });
-//  });
-//});
 
 
 // =============================================================================
